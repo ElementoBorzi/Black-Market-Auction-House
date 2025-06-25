@@ -24,8 +24,10 @@ A faithful backport of the Mists of Pandaria Black Market Auction House assets a
 ### 1. Server Module
 
 1. Copy `bmah_server.lua` into your Eluna scripts directory:
+
+2. Make sure your  `BMAH_VENDOR_NPCs` is properly configured to your custom gossip enabled npc.
    
-2. Restart your server; the `blackmarketauctionhouse` table will be created automatically.
+3. Restart your server; the `blackmarketauctionhouse` table will be created automatically.
 
 ### 2. Client AddOn
 
