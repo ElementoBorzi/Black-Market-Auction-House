@@ -4,6 +4,16 @@
 -- ────────────────────────────────────────────────────────────────────────────────
 -- ────────────────────────────────────────────────────────────────────────────────
 
+-- ─── Vendor NPC Configuration ───────────────────────────────────────────────
+-- List the NPC IDs that will serve as Black Market Auction House vendors.
+-- Interacting with any of these IDs will open the BMAH UI for players.
+-- Add or remove IDs here as your server requires.
+
+local BMAH_VENDOR_NPCs = {
+  2069430, --Test Subject
+  --#######, --Add More Here
+}
+-- ─────────────────────────────────────────────────────────────────────────────
 -- ─── Fill-rarity configuration ───────────────────────────────────────────────────
 -- Tweak these three values to adjust your loot rarity probabilities.
 -- They represent the *cumulative* thresholds for a random roll r = math.random():
@@ -90,17 +100,6 @@ After spending %dg, “%s” is now yours! Enjoy.
 – The Black Market AH
 ]]
 -- ───────────────────────────────────────────────────────────────────────────────
-
--- ─── Vendor NPC Configuration ───────────────────────────────────────────────
--- List the NPC IDs that will serve as Black Market Auction House vendors.
--- Interacting with any of these IDs will open the BMAH UI for players.
--- Add or remove IDs here as your server requires.
-
-local BMAH_VENDOR_NPCs = {
-  2069430, --Test Subject
-  --#######, --Add More Here
-}
--- ─────────────────────────────────────────────────────────────────────────────
 
 -- ─── Item Pricing Configuration ──────────────────────────────────────────────
 -- Define the gold cost for each item category and rarity tier.
