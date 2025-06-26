@@ -59,10 +59,6 @@ A faithful backport of the Mists of Pandaria Black Market Auction House assets a
    - `/bmah flush` — Expire all current auctions and immediately mail the items to their highest bidders. 
    - `/bmah fill`  — Immediately refill the auction house.
 
-## 🛣️ Roadmap
-
-- Icon Hover Tooltips: Display item names and details when hovering over auction icons.
-
 ## 🤝 Contributing
 
 - Bug reports, enhancements, and pull requests are welcome! Please fork the repo and open a pull request with your changes.
