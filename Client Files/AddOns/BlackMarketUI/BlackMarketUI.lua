@@ -647,6 +647,18 @@ init:SetScript("OnEvent", function(self, event)
   icon.texture:SetAllPoints()
   icon.texture:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark") -- default placeholder
 
+
+  icon:EnableMouse(true)
+  icon:SetHitRectInsets(0, -159, 0, 0)
+  icon:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    local rec = rows[hotItemIndex]
+    if not rec then return end
+    GameTooltip:SetHyperlink(("item:%d:0:0:0:0:0:0"):format(rec.itemId))
+    GameTooltip:Show()
+  end)
+  icon:SetScript("OnLeave", GameTooltip_Hide)
+
   -- Item name
   local nameText = itemFrame:CreateFontString("BlackMarketFrameHotItemName", "OVERLAY", "GameFontNormal")
   nameText:SetPoint("LEFT", icon, "RIGHT", 6, 0)
@@ -729,16 +741,15 @@ end
 -- optional tooltip on hover
 function BlackMarketUI_Row_OnEnter(self)
   self:LockHighlight()
-  GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+  -- determine which record this button represents
   local scroll = BlackMarketFrameScrollFrame
   local offset = HybridScrollFrame_GetOffset(scroll)
   local rec    = rows[self:GetID() + offset]
-  if rec then
-    GameTooltip:AddLine(rec.itemName)
-    GameTooltip:AddLine("Seller: "..rec.owner)
-    GameTooltip:AddLine("Time Left: "..rec.timeLeft)
-    GameTooltip:Show()
-  end
+  if not rec then return end
+
+  GameTooltip:SetOwner(self,     "ANCHOR_RIGHT")
+  GameTooltip:SetHyperlink(("item:%d:0:0:0:0:0:0"):format(rec.itemId))
+  GameTooltip:Show()
 end
 
 function BlackMarketUI_Row_OnLeave(self)
